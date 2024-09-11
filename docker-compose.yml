@@ -11,10 +11,12 @@ services:
       - 3005:3005
     networks:
       - common-network
+    # env-file:
+    #   - .env
   mysql-container:
     image: mysql
     volumes:
-      - D:\\tmp\\mysql:/var/lib/mysql
+      - /User/mysql-data:/var/lib/mysql
     environment:
       MYSQL_DATABASE: meeting_room_booking_system
       MYSQL_ROOT_PASSWORD: guang
@@ -23,7 +25,7 @@ services:
   redis-container:
     image: redis
     volumes:
-      - D:\\tmp\\redis:/data
+      - /User/redis-data:/data
     networks:
       - common-network
 networks:
